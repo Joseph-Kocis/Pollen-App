@@ -14,6 +14,10 @@
 		A6179A182457309D0028AD18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6179A172457309D0028AD18 /* Assets.xcassets */; };
 		A6179A1B2457309D0028AD18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6179A1A2457309D0028AD18 /* Preview Assets.xcassets */; };
 		A6179A1E2457309D0028AD18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6179A1C2457309D0028AD18 /* LaunchScreen.storyboard */; };
+		A6179A2A2457332D0028AD18 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6179A292457332D0028AD18 /* NetworkManager.swift */; };
+		A6179A2C245746B50028AD18 /* AccuWeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6179A2B245746B50028AD18 /* AccuWeatherAPIClient.swift */; };
+		A6179A30245751D00028AD18 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6179A2F245751D00028AD18 /* WeatherModel.swift */; };
+		A6179A32245754050028AD18 /* PollenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6179A31245754050028AD18 /* PollenModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		A6179A1A2457309D0028AD18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A6179A1D2457309D0028AD18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6179A1F2457309D0028AD18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6179A292457332D0028AD18 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A6179A2B245746B50028AD18 /* AccuWeatherAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuWeatherAPIClient.swift; sourceTree = "<group>"; };
+		A6179A2F245751D00028AD18 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		A6179A31245754050028AD18 /* PollenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +68,10 @@
 			children = (
 				A6179A0E2457309C0028AD18 /* AppDelegate.swift */,
 				A6179A102457309C0028AD18 /* SceneDelegate.swift */,
-				A6179A152457309C0028AD18 /* ContentView.swift */,
+				A6179A25245730B70028AD18 /* Views */,
+				A6179A27245730CD0028AD18 /* ViewModel */,
+				A6179A28245730D90028AD18 /* Model */,
+				A6179A26245730C10028AD18 /* Networking */,
 				A6179A172457309D0028AD18 /* Assets.xcassets */,
 				A6179A1C2457309D0028AD18 /* LaunchScreen.storyboard */,
 				A6179A1F2457309D0028AD18 /* Info.plist */,
@@ -76,6 +87,39 @@
 				A6179A1A2457309D0028AD18 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A6179A25245730B70028AD18 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6179A152457309C0028AD18 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A6179A26245730C10028AD18 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A6179A292457332D0028AD18 /* NetworkManager.swift */,
+				A6179A2B245746B50028AD18 /* AccuWeatherAPIClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A6179A27245730CD0028AD18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A6179A28245730D90028AD18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6179A31245754050028AD18 /* PollenModel.swift */,
+				A6179A2F245751D00028AD18 /* WeatherModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6179A2C245746B50028AD18 /* AccuWeatherAPIClient.swift in Sources */,
 				A6179A0F2457309C0028AD18 /* AppDelegate.swift in Sources */,
 				A6179A142457309C0028AD18 /* Pollen.xcdatamodeld in Sources */,
+				A6179A2A2457332D0028AD18 /* NetworkManager.swift in Sources */,
+				A6179A32245754050028AD18 /* PollenModel.swift in Sources */,
 				A6179A162457309C0028AD18 /* ContentView.swift in Sources */,
+				A6179A30245751D00028AD18 /* WeatherModel.swift in Sources */,
 				A6179A112457309C0028AD18 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
