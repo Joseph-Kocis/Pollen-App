@@ -11,11 +11,6 @@ import Foundation
 class AccuWeatherAPIClient {
     fileprivate let apiKey = "Nx8fVetx3yB9xfvSAql3kICyQFTU1hHK"
     fileprivate let location = "328169"
-    fileprivate let getDetails = true
-    
-    lazy var fiveDayForecastURL: URL = {
-        return URL(string: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/\(location)?apikey=\(self.apiKey)&details=\(getDetails)")!
-    }()
     
     let decoder = JSONDecoder()
     let session: URLSession
@@ -30,7 +25,7 @@ class AccuWeatherAPIClient {
     
     typealias FiveDayForecastCompletionHandler = ([PollenModel]?, Error?) -> Void
     func getFiveDayForecast(completionHandler: @escaping FiveDayForecastCompletionHandler) {
-        var request = URLRequest(url: fiveDayForecastURL)
+        var request = URLRequest(url: Endpoint.fiveDayForecast(withApiKey: apiKey, forLocation: location, withDetails: true).url)
         request.httpMethod = "GET"
         
         let dataTask = URLSession.shared.dataTask(
@@ -59,4 +54,39 @@ class AccuWeatherAPIClient {
         dataTask.resume()
     }
     
+}
+
+struct Endpoint {
+    var path: String
+    var queryItems: [URLQueryItem] = []
+}
+
+extension Endpoint {
+    var url: URL {
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "dataservice.accuweather.com"
+        components.path = "/" + path
+        components.queryItems = queryItems
+        
+        guard let url = components.url else {
+            preconditionFailure(
+                "Invalid URL components: \(components)"
+            )
+        }
+        return url
+    }
+}
+
+extension Endpoint {
+    static func fiveDayForecast(withApiKey apiKey: String, forLocation location: String,
+                                withDetails getDetails: Bool) -> Self {
+        Endpoint(
+            path: "forecasts/v1/daily/5day/\(location)",
+            queryItems: [
+                URLQueryItem(name: "apikey", value: apiKey),
+                URLQueryItem(name: "details", value: "\(getDetails)")
+            ]
+        )
+    }
 }
