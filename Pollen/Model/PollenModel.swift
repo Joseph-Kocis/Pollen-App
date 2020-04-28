@@ -61,3 +61,41 @@ enum Intensity: String {
     case medium = "Medium"
     case high = "High"
 }
+
+extension Date {
+    func formattedDate() -> String {
+        if (Calendar.current.isDateInToday(self)) {
+            return "Today"
+        } else if (Calendar.current.isDateInTomorrow(self)) {
+            return "Tomorrow"
+        } else if (Calendar.current.isDateInYesterday(self)) {
+            return "Yesterday"
+        } else if (Calendar.current.isDateInNextSevenDays(self)) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            return dateFormatter.string(from: self)
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMMM dd, YYYY"
+            return dateFormatter.string(from: self)
+        }
+    }
+}
+
+extension Calendar {
+    func isDateInNextSevenDays(_ date: Date) -> Bool {
+        if (
+            self.isDate(date, inSameDayAs: Date().advanced(by: 1 * 86400)) ||
+            self.isDate(date, inSameDayAs: Date().advanced(by: 2 * 86400)) ||
+            self.isDate(date, inSameDayAs: Date().advanced(by: 3 * 86400)) ||
+            self.isDate(date, inSameDayAs: Date().advanced(by: 4 * 86400)) ||
+            self.isDate(date, inSameDayAs: Date().advanced(by: 5 * 86400)) ||
+            self.isDate(date, inSameDayAs: Date().advanced(by: 6 * 86400)) ||
+            self.isDate(date, inSameDayAs: Date().advanced(by: 7 * 86400))
+            ) {
+            return true
+        } else {
+            return false
+        }
+    }
+}

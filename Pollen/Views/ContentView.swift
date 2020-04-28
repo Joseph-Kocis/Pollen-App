@@ -17,7 +17,9 @@ struct ContentView: View {
                 // Date Selection
                 PollenPageView(networkManager: networkManager)
                 // Footer
-            }.onAppear() {
+                }
+                .navigationBarTitle("Current Location", displayMode: .inline)
+                .onAppear() {
                 // TODO: -- Refresh the pollenData if necessary
                 // Verify that onAppear is called at the appropriate times
             }

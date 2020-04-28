@@ -13,11 +13,19 @@ struct PollenPageView: View {
     @State var dateIndex = 0
     
     var body: some View {
-        let views: [UIHostingController<PollenView>] = self.networkManager.pollenModel.map { data in
+        let views: [UIHostingController<PollenView>] = self.networkManager.pollenModel.map { pollenModel in
+            let informationViews: [PollenInformationView] = [
+                PollenInformationView(data: pollenModel.grassPollenData),
+                PollenInformationView(data: pollenModel.moldPollenData),
+                PollenInformationView(data: pollenModel.treePollenData),
+                PollenInformationView(data: pollenModel.ragweedPollenData)
+            ]
+            let pollenView = PollenView(pollenModel: pollenModel, informationViews: informationViews)
             
-            // Create a PollenView that contains an array of information views
-            
+            return UIHostingController(rootView: pollenView)
         }
+        
+        return PageView(views, currentPage: $dateIndex)
     }
 }
 
