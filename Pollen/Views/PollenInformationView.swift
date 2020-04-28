@@ -13,7 +13,7 @@ struct PollenInformationView: View {
     
     @State var capsuleWidth = CGFloat(0)
     @Binding var hasAnimated: Bool
-    @Binding var informationViewsAnimated: (grass: Bool, mold: Bool, tree: Bool, ragweed: Bool)
+    @Binding var informationViewsAnimated: [PollenType: Bool]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -70,20 +70,11 @@ struct PollenInformationView: View {
                         self.capsuleWidth = capsuleMaxWidth
                     }
                 } else {
-                    switch self.data.pollenType {
-                        case PollenType.grass.rawValue:
-                            self.informationViewsAnimated.grass = true
-                        case PollenType.mold.rawValue:
-                            self.informationViewsAnimated.mold = true
-                        case PollenType.tree.rawValue:
-                            self.informationViewsAnimated.tree = true
-                        case PollenType.ragweed.rawValue:
-                            self.informationViewsAnimated.ragweed = true
-                        default:
-                            Void()
+                    if let pollenType = PollenType(rawValue: self.data.pollenType) {
+                        self.informationViewsAnimated[pollenType] = true
                     }
                     
-                    if self.informationViewsAnimated.grass && self.informationViewsAnimated.mold && self.informationViewsAnimated.tree && self.informationViewsAnimated.ragweed {
+                    if !self.informationViewsAnimated.contains(where: { _, value in !value }) {
                         self.hasAnimated = true
                     }
                     return withAnimation(.ripple()) {

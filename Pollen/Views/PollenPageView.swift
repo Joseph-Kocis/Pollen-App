@@ -13,7 +13,8 @@ struct PollenPageView: View {
     @State var dateIndex = 0
     
     @State var hasAnimated = false
-    @State var informationViewsAnimated = (grass: false, mold: false, tree: false, ragweed: false)
+    @State var informationViewsAnimated: [PollenType: Bool] = [.grass: false, .mold: false, .tree: false, .ragweed: false]
+    // TODO: -- reset the animation when the view disappears
     
     var body: some View {
         let views: [UIHostingController<PollenView>] = self.networkManager.pollenModel.map { pollenModel in
