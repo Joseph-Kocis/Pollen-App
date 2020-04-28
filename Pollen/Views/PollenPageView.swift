@@ -13,7 +13,11 @@ struct PollenPageView: View {
     @State var dateIndex = 0
     
     var body: some View {
-        Text("\(networkManager.pollenModel.first?.grassPollenData.amount.description ?? "nil")")
+        let views: [UIHostingController<PollenView>] = self.networkManager.pollenModel.map { data in
+            
+            // Create a PollenView that contains an array of information views
+            
+        }
     }
 }
 
