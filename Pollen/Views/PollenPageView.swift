@@ -12,13 +12,32 @@ struct PollenPageView: View {
     @ObservedObject var networkManager: NetworkManager
     @State var dateIndex = 0
     
+    @State var hasAnimated = false
+    @State var informationViewsAnimated = (grass: false, mold: false, tree: false, ragweed: false)
+    
     var body: some View {
         let views: [UIHostingController<PollenView>] = self.networkManager.pollenModel.map { pollenModel in
             let informationViews: [PollenInformationView] = [
-                PollenInformationView(data: pollenModel.grassPollenData),
-                PollenInformationView(data: pollenModel.moldPollenData),
-                PollenInformationView(data: pollenModel.treePollenData),
-                PollenInformationView(data: pollenModel.ragweedPollenData)
+                PollenInformationView(
+                    data: pollenModel.grassPollenData,
+                    hasAnimated: $hasAnimated,
+                    informationViewsAnimated: $informationViewsAnimated
+                ),
+                PollenInformationView(
+                    data: pollenModel.moldPollenData,
+                    hasAnimated: $hasAnimated,
+                    informationViewsAnimated: $informationViewsAnimated
+                ),
+                PollenInformationView(
+                    data: pollenModel.treePollenData,
+                    hasAnimated: $hasAnimated,
+                    informationViewsAnimated: $informationViewsAnimated
+                ),
+                PollenInformationView(
+                    data: pollenModel.ragweedPollenData,
+                    hasAnimated: $hasAnimated,
+                    informationViewsAnimated: $informationViewsAnimated
+                )
             ]
             let pollenView = PollenView(pollenModel: pollenModel, informationViews: informationViews)
             

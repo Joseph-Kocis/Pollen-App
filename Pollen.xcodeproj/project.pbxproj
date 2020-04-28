@@ -33,6 +33,7 @@
 		A60F694F2458A8CC008A9025 /* PollenInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenInformationView.swift; sourceTree = "<group>"; };
 		A60F69522458BDC5008A9025 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		A60F69542458BDCB008A9025 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		A60F69562458BE93008A9025 /* Pollen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pollen.entitlements; sourceTree = "<group>"; };
 		A6179A0B2457309C0028AD18 /* Pollen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6179A0E2457309C0028AD18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6179A102457309C0028AD18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		A6179A0D2457309C0028AD18 /* Pollen */ = {
 			isa = PBXGroup;
 			children = (
+				A60F69562458BE93008A9025 /* Pollen.entitlements */,
 				A6179A0E2457309C0028AD18 /* AppDelegate.swift */,
 				A6179A102457309C0028AD18 /* SceneDelegate.swift */,
 				A6179A25245730B70028AD18 /* Views */,
@@ -368,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pollen/Pollen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Pollen/Preview Content\"";
 				DEVELOPMENT_TEAM = 373ZY3MVGD;
@@ -379,6 +382,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JosephKocis.Pollen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pollen/Pollen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Pollen/Preview Content\"";
 				DEVELOPMENT_TEAM = 373ZY3MVGD;
@@ -399,6 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JosephKocis.Pollen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
