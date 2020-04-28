@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A60F694A245899DC008A9025 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60F6949245899DC008A9025 /* Endpoint.swift */; };
+		A60F694C24589AD5008A9025 /* PollenPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60F694B24589AD5008A9025 /* PollenPageView.swift */; };
 		A6179A0F2457309C0028AD18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6179A0E2457309C0028AD18 /* AppDelegate.swift */; };
 		A6179A112457309C0028AD18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6179A102457309C0028AD18 /* SceneDelegate.swift */; };
 		A6179A142457309C0028AD18 /* Pollen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6179A122457309C0028AD18 /* Pollen.xcdatamodeld */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		A60F6949245899DC008A9025 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A60F694B24589AD5008A9025 /* PollenPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenPageView.swift; sourceTree = "<group>"; };
 		A6179A0B2457309C0028AD18 /* Pollen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6179A0E2457309C0028AD18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6179A102457309C0028AD18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				A6179A152457309C0028AD18 /* ContentView.swift */,
+				A60F694B24589AD5008A9025 /* PollenPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				A6179A2C245746B50028AD18 /* AccuWeatherAPIClient.swift in Sources */,
 				A60F694A245899DC008A9025 /* Endpoint.swift in Sources */,
 				A6179A0F2457309C0028AD18 /* AppDelegate.swift in Sources */,
+				A60F694C24589AD5008A9025 /* PollenPageView.swift in Sources */,
 				A6179A142457309C0028AD18 /* Pollen.xcdatamodeld in Sources */,
 				A6179A2A2457332D0028AD18 /* NetworkManager.swift in Sources */,
 				A6179A32245754050028AD18 /* PollenModel.swift in Sources */,

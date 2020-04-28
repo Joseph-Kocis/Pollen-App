@@ -12,7 +12,16 @@ struct ContentView: View {
     @ObservedObject var networkManager = NetworkManager()
     
     var body: some View {
-        Text("\(networkManager.pollenModel.first?.grassPollenData.amount.description ?? "nil")")
+        NavigationView {
+            VStack {
+                // Date Selection
+                PollenPageView(networkManager: networkManager)
+                // Footer
+            }.onAppear() {
+                // TODO: -- Refresh the pollenData if necessary
+                // Verify that onAppear is called at the appropriate times
+            }
+        }
     }
 }
 

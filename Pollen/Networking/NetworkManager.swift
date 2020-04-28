@@ -10,18 +10,28 @@ import SwiftUI
 import Combine
 
 class NetworkManager: ObservableObject {
-    let client = AccuWeatherAPIClient()
+    fileprivate var shouldUseNetwork = true
+    fileprivate let client = AccuWeatherAPIClient()
     
-    @Published var pollenModel = [PollenModel]()
+    @Published var pollenModel: [PollenModel] = []
     
     init() {
-        client.getFiveDayForecast() { pollenModel, error in
-            if let pollenModel = pollenModel {
-                self.pollenModel = pollenModel
-            }
-            
-            // TODO: -- Handle Errors
-        }
+        refreshFiveDayForecast()
     }
     
+    init(shouldUseNetwork: Bool) {
+        self.shouldUseNetwork = shouldUseNetwork
+    }
+    
+    func refreshFiveDayForecast() {
+        if shouldUseNetwork {
+            client.getFiveDayForecast() { pollenModel, error in
+                if let pollenModel = pollenModel {
+                    self.pollenModel = pollenModel
+                }
+                
+                // TODO: -- Handle Errors
+            }
+        }
+    }
 }
