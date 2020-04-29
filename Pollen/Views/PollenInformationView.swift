@@ -65,22 +65,12 @@ struct PollenInformationView: View {
             .fill(Color.blue)
             .frame(width: capsuleWidth)
             .onAppear() {
-                if self.hasAnimated {
-                    return withAnimation(.none) {
-                        self.capsuleWidth = capsuleMaxWidth
-                    }
-                } else {
-                    if let pollenType = PollenType(rawValue: self.data.pollenType) {
-                        self.informationViewsAnimated[pollenType] = true
-                    }
-                    
-                    if !self.informationViewsAnimated.contains(where: { _, value in !value }) {
-                        self.hasAnimated = true
-                    }
-                    return withAnimation(.ripple()) {
-                        self.capsuleWidth = capsuleMaxWidth
-                    }
-                }
+                self.capsuleAnimation(withMaxWidth: capsuleMaxWidth)
+            }.onReceive(NotificationCenter.default.publisher(for: UIScene.didActivateNotification)) { _ in
+                self.hasAnimated = false
+                self.capsuleAnimation(withMaxWidth: capsuleMaxWidth)
+            }.onReceive(NotificationCenter.default.publisher(for: UIScene.willDeactivateNotification)) { _ in
+                self.capsuleWidth = 0
             }
         
         return HStack {
@@ -93,6 +83,25 @@ struct PollenInformationView: View {
                 )
                 return "\(text)"
             }())
+        }
+    }
+    
+    func capsuleAnimation(withMaxWidth capsuleMaxWidth: CGFloat) -> () {
+        if self.hasAnimated {
+            return withAnimation(.none) {
+                self.capsuleWidth = capsuleMaxWidth
+            }
+        } else {
+            if let pollenType = PollenType(rawValue: self.data.pollenType) {
+                self.informationViewsAnimated[pollenType] = true
+            }
+            
+            if !self.informationViewsAnimated.contains(where: { _, value in !value }) {
+                self.hasAnimated = true
+            }
+            return withAnimation(.ripple()) {
+                self.capsuleWidth = capsuleMaxWidth
+            }
         }
     }
 }

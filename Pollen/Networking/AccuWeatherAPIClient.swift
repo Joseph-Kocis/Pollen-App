@@ -9,7 +9,7 @@
 import Foundation
 
 class AccuWeatherAPIClient {
-    fileprivate let apiKey = "Nx8fVetx3yB9xfvSAql3kICyQFTU1hHK"
+    fileprivate let apiKey = "vd5TFuMzvwKnvTv2LCtGVMqBNB8eGaNX"
     fileprivate let location = "328169"
     
     let decoder = JSONDecoder()

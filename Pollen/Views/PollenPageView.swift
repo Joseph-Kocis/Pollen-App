@@ -13,8 +13,9 @@ struct PollenPageView: View {
     @State var dateIndex = 0
     
     @State var hasAnimated = false
-    @State var informationViewsAnimated: [PollenType: Bool] = [.grass: false, .mold: false, .tree: false, .ragweed: false]
-    // TODO: -- reset the animation when the view disappears
+    @State var informationViewsAnimated: [PollenType: Bool] = [
+        .grass: false, .mold: false, .tree: false, .ragweed: false
+    ]
     
     var body: some View {
         let views: [UIHostingController<PollenView>] = self.networkManager.pollenModel.map { pollenModel in
@@ -44,8 +45,12 @@ struct PollenPageView: View {
             
             return UIHostingController(rootView: pollenView)
         }
-        
-        return PageView(views, currentPage: $dateIndex)
+        return PageView(views, currentPage: $dateIndex).onReceive(NotificationCenter.default.publisher(for: UIScene.willDeactivateNotification)) { _ in
+            self.informationViewsAnimated = [
+                .grass: false, .mold: false, .tree: false, .ragweed: false
+            ]
+            self.hasAnimated = false
+        }
     }
 }
 
