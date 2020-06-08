@@ -66,10 +66,12 @@ struct PollenInformationView: View {
             .frame(width: capsuleWidth)
             .onAppear() {
                 self.capsuleAnimation(withMaxWidth: capsuleMaxWidth)
-            }.onReceive(NotificationCenter.default.publisher(for: UIScene.didActivateNotification)) { _ in
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIScene.didActivateNotification)) { _ in
                 self.hasAnimated = false
                 self.capsuleAnimation(withMaxWidth: capsuleMaxWidth)
-            }.onReceive(NotificationCenter.default.publisher(for: UIScene.willDeactivateNotification)) { _ in
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIScene.willDeactivateNotification)) { _ in
                 self.capsuleWidth = 0
             }
         

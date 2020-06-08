@@ -45,12 +45,19 @@ struct PollenPageView: View {
             
             return UIHostingController(rootView: pollenView)
         }
-        return PageView(views, currentPage: $dateIndex).onReceive(NotificationCenter.default.publisher(for: UIScene.willDeactivateNotification)) { _ in
-            self.informationViewsAnimated = [
-                .grass: false, .mold: false, .tree: false, .ragweed: false
-            ]
-            self.hasAnimated = false
-        }
+        return PageView(views, currentPage: $dateIndex)
+            .onReceive(NotificationCenter.default.publisher(for: UIScene.willDeactivateNotification)) { _ in
+                self.informationViewsAnimated = [
+                    .grass: false, .mold: false, .tree: false, .ragweed: false
+                ]
+                self.hasAnimated = false
+            }
+            .onReceive(networkManager.objectWillChange) {
+                self.informationViewsAnimated = [
+                    .grass: false, .mold: false, .tree: false, .ragweed: false
+                ]
+                self.hasAnimated = false
+            }
     }
 }
 
