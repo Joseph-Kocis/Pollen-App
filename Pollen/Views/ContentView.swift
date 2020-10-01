@@ -10,20 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var networkManager = NetworkManager()
-    @State var refreshData = false
     
     var body: some View {
         NavigationView {
             VStack {
-                // Date Selection
                 Button(action: {
-                    //self.networkManager.refreshFiveDayForecast()
                     self.networkManager.pollenModel[0].grassPollenData.intensity = Intensity.high
                 }, label: {
                     Text("Update Instensity")
                 })
                 PollenPageView(networkManager: networkManager)
-                // Footer
             }
             .navigationBarTitle("Current Location", displayMode: .inline)
             .onAppear() {

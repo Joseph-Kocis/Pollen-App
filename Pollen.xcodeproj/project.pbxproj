@@ -93,7 +93,6 @@
 				A6179A102457309C0028AD18 /* SceneDelegate.swift */,
 				A6179A25245730B70028AD18 /* Views */,
 				A60F69512458BD9B008A9025 /* Pages */,
-				A6179A27245730CD0028AD18 /* ViewModel */,
 				A6179A28245730D90028AD18 /* Model */,
 				A6179A26245730C10028AD18 /* Networking */,
 				A6179A172457309D0028AD18 /* Assets.xcassets */,
@@ -132,13 +131,6 @@
 				A60F6949245899DC008A9025 /* Endpoint.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		A6179A27245730CD0028AD18 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A6179A28245730D90028AD18 /* Model */ = {
