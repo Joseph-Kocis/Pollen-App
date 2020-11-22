@@ -1,4 +1,4 @@
-## Pollen
+# Pollen <img src="Images/Icon.png" height="25"/>
 
 Simple iOS pollen tracking app written in SwiftUI. It uses the AccuWeather API for pollen forecasts. This project was worked on mainly during March and April of 2020.
 
